@@ -1,5 +1,5 @@
 import React from "react";
-import { VictoryLine, VictoryChart, VictoryAxis } from "victory";
+import { VictoryLine, VictoryChart, VictoryAxis} from "victory";
 
 class Graph extends React.Component {
   constructor(props) {
@@ -9,10 +9,10 @@ class Graph extends React.Component {
 
   render() {
     return (
-      <div class="bg-white m-3">
+      <div className="bg-white p-2 m-3">
         <VictoryChart padding={{ left: 30, top: 30, right: 50, bottom: 100 }}>
           <VictoryAxis
-            tickFormat={this.props.averageStudent.assigment}
+            tickFormat={this.props.averageAll.assignment}
             style={{
               tickLabels: { angle: 45, textAnchor: "start", fontSize: 5 },
               ticks: { stroke: "grey", size: 5 },
@@ -30,15 +30,6 @@ class Graph extends React.Component {
           />
           <VictoryLine
             style={{
-              data: { stroke: "red" },
-              parent: { border: "1px solid #ccc" },
-            }}
-            data={this.props.averageStudent}
-            x="assignment"
-            y="average"
-          />
-          <VictoryLine
-            style={{
               data: { stroke: "black" },
               parent: { border: "1px solid #ccc" },
             }}
@@ -47,12 +38,9 @@ class Graph extends React.Component {
             y="average"
           />
         </VictoryChart>
-        <div className="small m-3">
-          <p className="text-danger"><em>
-            Gemiddeld cijfer van een opdracht over alle studenten
-            </em></p>
-          <p><em>
-            Gemiddeld cijfer van deze student voor alle opdrachten
+        <div className="small mx-3 div-chart-graph-under">
+          <p className="mx-5"><em>
+            Het gemiddelde cijfer van een opdracht over alle studenten
             </em></p>
         </div>
       </div>

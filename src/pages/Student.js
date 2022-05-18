@@ -16,32 +16,22 @@ class Student extends React.Component {
   }
   
 
-  calculateAverageAssignment(studentData, assignment) {
+  calcAverageAssignmentFunDifficult(studentData, assignment) {
     let average = 0;
-    let items = 0;
+    let persons = 0;
     studentData.forEach((item) => {
       if (item.assignment === assignment) {
         average += (item.difficult + item.fun) / 2;
-        items++;
+        persons++;
       }
     });
-    return average / items;
+    return average / persons;
+    
   }
 
-  calculateAverageForOneStudent(studentData) {
-    const averageData = studentData.map((studentItem) => {
-      const average = (studentItem.difficult + studentItem.fun) / 2;
-      return {
-        id: studentItem.id,
-        name: studentItem.name,
-        assignment: studentItem.assignment,
-        average: average,
-      };
-    });
-    return averageData;
-  }
 
-  calculateAverageForAllStudents(studentData) {
+
+  calcAverageForAllStudents(studentData) {
     const averageStudentData = [];
     let filterItemId = 1;
     studentData.forEach((studentItem) => {
@@ -49,7 +39,7 @@ class Student extends React.Component {
         return studentItem.assignment === filterItem.assignment;
       });
       if (data === undefined) {
-        const average = this.calculateAverageAssignment(
+        const average = this.calcAverageAssignmentFunDifficult(
           studentData,
           studentItem.assignment
         );
@@ -65,14 +55,13 @@ class Student extends React.Component {
   }
 
   render() {
-    console.log('naame', this.state.studentName)
     const studentData = this.props.studentData.filter((item) => {
       
       return item.name === this.state.studentName;
     });
 
-    const averageDataStudent = this.calculateAverageForOneStudent(studentData);
-    const averageDataAll = this.calculateAverageForAllStudents(
+    
+    const averageDataAll = this.calcAverageForAllStudents(
       this.props.studentData
     );
     return (
@@ -82,10 +71,7 @@ class Student extends React.Component {
         <Chart studentData={studentData} />
         </div>
         <div className="col-lg-6">
-        <Graph
-          averageStudent={averageDataStudent}
-          averageAll={averageDataAll}
-        />
+        <Graph averageAll={averageDataAll}/>
         </div>
       </div>
     );

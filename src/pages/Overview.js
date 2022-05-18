@@ -21,7 +21,6 @@ class Overview extends React.Component {
   }
 
   handleStudentsChange(name, state) {
-    console.log('name', name, 'state', state)
     this.setState((prevState) => {
       const students = prevState.students.map((item) => {
         if (item.name === name) {
@@ -38,28 +37,28 @@ class Overview extends React.Component {
     });
   }
 
-  calculateAverageDifficult(studentData, assignment) {
+  calcAverageDifficult(studentData, assignment) {
     let average = 0;
-    let items = 0;
+    let persons = 0;
     studentData.forEach((item) => {
       if (item.assignment === assignment) {
         average += item.difficult;
-        items++;
+        persons++;
       }
     });
-    return average / items;
+    return average / persons;
   }
 
-  calculateAverageFun(studentData, assignment) {
+  calcAverageFun(studentData, assignment) {
     let average = 0;
-    let items = 0;
+    let persons = 0;
     studentData.forEach((item) => {
       if (item.assignment === assignment) {
         average += item.fun;
-        items++;
+        persons++;
       }
     });
-    return average / items;
+    return average / persons;
   }
 
   averageStudentData(studentData) {
@@ -70,11 +69,11 @@ class Overview extends React.Component {
         return studentItem.assignment === filterItem.assignment;
       });
       if (data === undefined) {
-        const averageDifficult = this.calculateAverageDifficult(
+        const averageDifficult = this.calcAverageDifficult(
           studentData,
           studentItem.assignment
         );
-        const averageFun = this.calculateAverageFun(
+        const averageFun = this.calcAverageFun(
           studentData,
           studentItem.assignment
         );
@@ -114,7 +113,9 @@ class Overview extends React.Component {
           students={this.props.students}
           studentsChange={this.handleStudentsChange}
         />
+        <div className="container-lg">
         <Chart studentData={averageStudentData} />
+        </div>
       </div>
     );
   }

@@ -13,7 +13,7 @@ const SelectStudents = (props) => {
     );
   });
   return (
-    <div>
+    <div className="container-lg">
       <button className="btn btn-outline-primary m-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="false" aria-controls="collapse">
           Filter op naam
       </button>

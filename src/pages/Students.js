@@ -15,7 +15,7 @@ const Students = (props) => {
 
   return (
     
-    <div className="row p-3 text-center m-1 b-dark ">
+    <div className="row p-3 text-center m-1 b-dark">
       {studentLinks}
     </div>
     

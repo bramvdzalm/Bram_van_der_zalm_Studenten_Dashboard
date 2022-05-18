@@ -5,9 +5,9 @@ const Input = (props) => {
     props.selectChange(props.selectName, event.target.checked);
   };
   return (
-    <div class="col-sm-6 col-md-4 col-lg-2 form-check form-switch">
+    <div className="col-sm-6 col-md-4 form-check form-switch">
       <input
-        className="form-check-input"
+        className="form-check-input mx-1"
         id="flexSwitchCheckChecked"
         type="checkbox"
         onChange={handleSelectChange}
@@ -15,7 +15,7 @@ const Input = (props) => {
       />
       <label
         className="form-check-label" 
-        for="flexSwitchCheckDisabled"
+        htmlFor="flexSwitchCheckDisabled"
       >{props.selectText}</label>
     </div>
   );

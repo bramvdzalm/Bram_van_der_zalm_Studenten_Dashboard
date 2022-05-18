@@ -101,7 +101,7 @@
   {
     id: 15,
     name: "Evelyn",
-    assignment: "W1D5 - Project - Galgje",
+    assignment: "W1D5 - Project - Galgje",
     difficult: 3,
     fun: 3
   },

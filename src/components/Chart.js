@@ -61,7 +61,7 @@ class Chart extends React.Component {
     return (
       
         
-     <div class="bg-white m-3">   
+     <div className="bg-white p-2 m-3">   
       <div>
         <VictoryChart
           domainPadding={{ x: 17 }}
@@ -89,15 +89,15 @@ class Chart extends React.Component {
           </VictoryGroup>
         </VictoryChart>
         </div>
-        <div className="mx-3">
+        <div className="mx-3 div-chart-graph-under">
           <Input
             selectName={"difficult"}
-            selectText={<p class="text-danger small"><em>Moeilijkheid</em></p>}
+            selectText={<p className="text-danger small"><em>Moeilijkheid</em></p>}
             selectChange={this.handleFilterChange}
           />
           <Input
             selectName={"fun"}
-            selectText={<p class="small"><em>Leuk</em></p>}
+            selectText={<p className="small"><em>Leuk</em></p>}
             selectChange={this.handleFilterChange}
           />
         </div>
